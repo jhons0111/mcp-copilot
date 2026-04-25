@@ -30,10 +30,4 @@ Las ramas están estructuradas para corresponder a los vídeos del curso. La con
 
 **Carlos Solís**
 
-Echa un vistazo a mis otros cursos en [LinkedIn Learning]([https://www.linkedin.com/learning/instructors/](https://www.linkedin.com/learning/instructors/carlos-solis)).
-
-[0]: # (Replace these placeholder URLs with actual course URLs)
-[lil-course-url]: https://www.linkedin.com/learning/integracion-de-mcp-en-github-copilot-para-desarrolladores
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQH9ympfXIG9gA/learning-public-crop_675_1200/B4EZq7CRnTKcAc-/0/1764074527990?e=2147483647&v=beta&t=IWJFWKfgmOW-I5Z2kB3S34fbtojvMT03QC01zCBhvQ8
-
-[1]: # (End of ES-Instruction ###############################################################################################)
+Echa un vistazo a mis otros cursos en [LinkedIn Learning]
