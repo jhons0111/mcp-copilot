@@ -1,0 +1,27 @@
+{
+  "name": "github-mcp",
+  "version": "1.0.0",
+  "description": "Este es el repositorio del curso de LinkedIn Learning `[Integración de MCP en GitHub Copilot para desarrolladores]`. El curso completo está disponible en [LinkedIn Learning][lil-course-url].",
+  "main": "/src/servidor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhons0111/mcp-copilot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/jhons0111/mcp-copilot/issues"
+  },
+  "homepage": "https://github.com/jhons0111/mcp-copilot#readme",
+  "dependencies": {
+    "@modelcontextprotocol/inspector": "^0.21.2",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.3.6"
+  }
+}
