@@ -1,10 +1,16 @@
 {
     "servers": {
-        "mcp-verificar-password": {
-            "command": "npx",
+        // "mcp-verificar-password": {
+        //     "command": "npx",
+        //     "args": [
+        //         "-y",
+        //         "@soycarlossolis/mcp-verificar-password",
+        //     ]
+        // }
+        "mcp-local-verificar-password": {
+            "command": "node",
             "args": [
-                "-y",
-                "@soycarlossolis/mcp-verificar-password",
+                "C:\\Users\\Usuario\\Desktop\\github-mcp\\src\\servidor.js"
             ]
         }
     }
