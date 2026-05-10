@@ -8,6 +8,14 @@ const server = new McpServer({
     version: "1.0.0"
 });
 
+server.tool(
+    "hola",
+    "Saluda al usuario con un mensaje de bienvenida",
+    { nombre: z.string().describe("Nombre de la persona a saludar") },
+    async ({ nombre }) => ({
+        content: [{ type: "text", text: `¡Hola, ${nombre}! Bienvenido al servidor MCP.` }]
+    })
+);
 
 async function main() {
     const transport = new StdioServerTransport();
