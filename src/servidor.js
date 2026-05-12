@@ -4,12 +4,16 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
+import fs from "node:fs/promises";
+
 
 const server = new McpServer({
     name: "Verificador de Contraseñas",
     version: "1.0.0",
     capabilities: {
         tools: {},
+        resources: {},
+        prompt: {},
     },
 });
 
@@ -41,9 +45,64 @@ server.tool(
                 ]
             };
         }
+    }
+);
 
-    });
+server.resource(
+    "tips-para-nombrar-passwords",
+    "tips://all",
+    {
+        description: "Muestra tips de seguridad",
+        title: "Tips",
+        mimeType: "application/json",
+    }, async uri => {
+        try {
 
+            const tips = await fs.readFile('src/recursos/tips.json', "utf-8").then(res => JSON.parse(res));
+
+            return {
+                contents: [
+                    {
+                        uri: uri.href,
+                        text: JSON.stringify(tips, null, 2),
+                        mimeType: "application/json"
+                    }
+                ]
+            };
+        } catch (error) {
+            return {
+                contents: [
+                    {
+                        uri: uri.href,
+                        text: JSON.stringify({ error: error?.message ?? String(error) }),
+                        mimeType: "application/json"
+                    }
+                ]
+            };
+        }
+    }
+)
+
+server.prompt(
+    "prompt-verificador-password",
+    "prompt para solicitar verificación de password",
+    {
+        password: z.string()
+    }, (params) => {
+        return {
+            messages: [
+                {
+                    role: "user",
+                    content: {
+                        type: "text",
+                        text: `Analiza la calidad del password "${params.password}".
+Sugiere reglas basadas en las guías OWASP. `
+                    }
+                }
+            ]
+        }
+    }
+)
 
 function verificarPassword(params) {
     const password = params.password;
